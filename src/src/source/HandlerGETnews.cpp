@@ -39,6 +39,8 @@ string getDataFromFile(const string& filename) {
 
     return s;
 }
+
+
 void HandlerGETnews::handleGETnews(const shared_ptr<Session> &session) {
 
     string news[3];
