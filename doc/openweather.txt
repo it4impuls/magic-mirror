@@ -1,0 +1,11 @@
+openweathermap.org
+
+Account:
+	key-real
+	thereatkirill@freenet.de
+	myOpenWeather
+	4e513534d75f33ff1c95d236cc3e6419
+
+
+Request:
+	https://api.openweathermap.org/data/2.5/weather?q=Hamburg&lang=de&appid=4e513534d75f33ff1c95d236cc3e6419

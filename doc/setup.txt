@@ -1,0 +1,51 @@
+************************* build RESTBED *************************
+add in CMakeLists.txt under
+target_link_libraries( ${SHARED_LIBRARY_NAME})
+target_link_libraries( ${STATIC_LIBRARY_NAME} ${CMAKE_DL_LIBS})
+
+the lib "WS2_32"
+
+like this:
+target_link_libraries( ${SHARED_LIBRARY_NAME} WS2_32)
+target_link_libraries( ${STATIC_LIBRARY_NAME} ${CMAKE_DL_LIBS} WS2_32)
+
+
+
+
+------------------------------------------------------------------------------------
+
+assuming your Project Name is "MyProject"
+
+************************* include RESTBED *************************
+add to CMakeLists.txt:
+
+INCLUDE_DIRECTORIES(dependency/restbed/include)
+LINK_DIRECTORIES(dependency/restbed/library)
+
+
+add_executable(MyProject main.cpp)
+TARGET_LINK_LIBRARIES(MyProject restbed restbed-shared.dll)
+
+
+************************* include GTEST/GMOCK *************************
+clone https://github.com/google/googletest.git
+to a folder in your project, like gTest
+
+be careful, remove the add_executable line
+
+add in CMakeLists.txt at the bottom:
+
+add_subdirectory(gTest)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x")
+add_executable(MyProject test.cpp)
+target_link_libraries(MyProject gmock gmock_main)
+
+
+------------------------------------------------------------------------------------
+
+to run GCC compiled programs under Windows you need:
+libwinpthread-1.dll
+libstdc++-6.dll
+libgcc_s_seh-1.dll
+
+you can find them in the CLion/bin/mingw/bin Folder

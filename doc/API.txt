@@ -1,0 +1,21 @@
+
+*********************************************************************
+GetTimeJSON
+
+
+send GET to:
+/time
+
+receive JSON:
+{"Time":"12:30","Date":"02.02.2022","Day":"Monday"}
+
+
+
+*********************************************************************
+GetWeatherJSON
+
+
+send GET to:
+/weather
+
+receive JSON:
