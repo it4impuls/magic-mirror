@@ -5,6 +5,7 @@
 #include "HandlerGETweather.h"
 #include "HandlerGETnews.h"
 #include "HandlerPOSTaddnews.h"
+#include "HandlerPOSTlogin.h"
 
 
 using namespace std;
@@ -18,6 +19,7 @@ public:
     HandlerGETweather* _HandlerWeather;
     HandlerPOSTaddnews* _HandlerPOSTaddnews;
     HandlerGETnews* _HandlerGETnews;
+    HandlerPOSTlogin* _HandlerPOSTlogin;
 
 	explicit MainSystem(API* _theAPI);
 	MainSystem();
