@@ -1,10 +1,10 @@
 #include <iostream>
 #include <restbed>
 #include <string>
-#include <fstream>
 #include "API.h"
 #include "json.hpp"
 #include "HandlerPOSTlogin.h"
+#include "LoginManager.h"
 
 
 using namespace std;
@@ -27,14 +27,15 @@ void HandlerPOSTlogin::handlePOSTlogin(const shared_ptr<Session> &session) {
 
     content_length = request->get_header("Content-Length", 0);
 
-    session->fetch(content_length, [request]( const shared_ptr<Session> session, const Bytes & body )
+    session->fetch(content_length, [request](const shared_ptr<Session> session, const Bytes& body)
     {
         string str = string(reinterpret_cast<const char*>(body.data()));
         str.resize(body.size());
         This->tempString = str;
     } );
 
+    string s = This->tempString.substr(This->tempString.find("=") + 1, This->tempString.length());
+     int result = LoginManager::recogniseLogin(s);
 
-    string result = This->tempString;
-    This->api->closeSession(result,session);
+    This->api->closeSession(to_string(result),session);
 }

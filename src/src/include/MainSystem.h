@@ -6,6 +6,7 @@
 #include "HandlerGETnews.h"
 #include "HandlerPOSTaddnews.h"
 #include "HandlerPOSTlogin.h"
+#include "LoginManager.h"
 
 
 using namespace std;
@@ -20,6 +21,7 @@ public:
     HandlerPOSTaddnews* _HandlerPOSTaddnews;
     HandlerGETnews* _HandlerGETnews;
     HandlerPOSTlogin* _HandlerPOSTlogin;
+    LoginManager* _LoginManager;
 
 	explicit MainSystem(API* _theAPI);
 	MainSystem();
@@ -28,5 +30,4 @@ public:
 
 	void run() const;
 	static void service_ready_handler(Service&);
-
 };

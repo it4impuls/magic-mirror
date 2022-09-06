@@ -6,6 +6,7 @@
 #include "HandlerGETnews.h"
 #include "HandlerPOSTaddnews.h"
 #include "HandlerPOSTlogin.h"
+#include "LoginManager.h"
 
 
 using namespace std;
@@ -24,6 +25,7 @@ bool MainSystem::initSystem() {
     _HandlerGETnews = new HandlerGETnews(theAPI);
     _HandlerPOSTaddnews = new HandlerPOSTaddnews(theAPI);
     _HandlerPOSTlogin = new HandlerPOSTlogin(theAPI);
+    _LoginManager = new LoginManager();
 
     theAPI->publishResource("GET", "/time", HandlerGETtime::handleGETtime);
     theAPI->publishResource("GET", "/weather", HandlerGETweather::handleGETweather);

@@ -4,7 +4,7 @@ project(MagicMirror)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../../bin")
 
-INCLUDE_DIRECTORIES(dependency/restbed/include dependency/json)
+INCLUDE_DIRECTORIES(dependency/restbed/include dependency/json dependency/simpleini)
 LINK_DIRECTORIES(dependency/restbed/library)
 
 add_subdirectory(dependency/gtest)
@@ -41,4 +41,4 @@ add_executable(MagicMirrorTests ${all_tests})
 
 
 target_link_libraries(MagicMirrorTests gmock gmock_main restbed restbed-shared.dll)
-TARGET_LINK_LIBRARIES(MagicMirror restbed restbed-shared.dll)
+target_link_libraries(MagicMirror restbed restbed-shared.dll)
