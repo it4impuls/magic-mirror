@@ -7,15 +7,15 @@
 using namespace std;
 using namespace restbed;
 
-class HandlerGETnews {
+class HandlerGETallNews {
 public:
 
-    static HandlerGETnews* This;
+    static HandlerGETallNews* This;
     API* api;
-    HandlerGETnews(API* _api);
+    HandlerGETallNews(API* _api);
 
     string tempString;
 
-    static void handleGETnews(const shared_ptr<Session> &session);
+	static void handleGETallNews(const shared_ptr<Session> &session);
 
 };

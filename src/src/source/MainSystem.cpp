@@ -3,7 +3,8 @@
 #include "API.h"
 #include "HandlerGETtime.h"
 #include "HandlerGETweather.h"
-#include "HandlerGETnews.h"
+#include "HandlerGETallNews.h"
+#include "HandlerGETNews.h"
 #include "HandlerPOSTaddnews.h"
 #include "HandlerPOSTlogin.h"
 #include "LoginManager.h"
@@ -22,6 +23,7 @@ bool MainSystem::initSystem() {
 
     _HandlerTime = new HandlerGETtime(theAPI);
     _HandlerWeather = new HandlerGETweather(theAPI);
+    _HandlerGETallNews = new HandlerGETallNews(theAPI);
     _HandlerGETnews = new HandlerGETnews(theAPI);
     _HandlerPOSTaddnews = new HandlerPOSTaddnews(theAPI);
     _HandlerPOSTlogin = new HandlerPOSTlogin(theAPI);
@@ -29,9 +31,10 @@ bool MainSystem::initSystem() {
 
     theAPI->publishResource("GET", "/time", HandlerGETtime::handleGETtime);
     theAPI->publishResource("GET", "/weather", HandlerGETweather::handleGETweather);
-    theAPI->publishResource("GET", "/news", HandlerGETnews::handleGETnews);
+    theAPI->publishResource("GET", "/allnews", HandlerGETallNews::handleGETallNews);
     theAPI->publishResource("POST", "/addnews", HandlerPOSTaddnews::handlePOSTaddnews);
     theAPI->publishResource("POST", "/login", HandlerPOSTlogin::handlePOSTlogin);
+    theAPI->publishResource("GET", "/news", HandlerGETnews::handleGETnews);
 
     return true;
 }

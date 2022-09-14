@@ -66,16 +66,15 @@ void HandlerPOSTaddnews::handlePOSTaddnews(const shared_ptr<Session> &session) {
 
     content_length = request->get_header("Content-Length", 0);
 
-    session->fetch(content_length, [request]( const shared_ptr<Session> session, const Bytes & body )
+    session->fetch(content_length, [request](const shared_ptr<Session> session, const Bytes & body)
     {
         string str = string(reinterpret_cast<const char*>(body.data()));
         str.resize(body.size());
         This->tempString = str;
-    } );
+    });
 
     This->write2files(This->tempString);
 
     string result = This->tempString;
     This->api->closeSession(result,session);
 }
-

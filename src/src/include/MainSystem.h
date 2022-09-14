@@ -3,6 +3,7 @@
 #include "API.h"
 #include "HandlerGETtime.h"
 #include "HandlerGETweather.h"
+#include "HandlerGETallNews.h"
 #include "HandlerGETnews.h"
 #include "HandlerPOSTaddnews.h"
 #include "HandlerPOSTlogin.h"
@@ -19,8 +20,9 @@ public:
 	HandlerGETtime* _HandlerTime;
     HandlerGETweather* _HandlerWeather;
     HandlerPOSTaddnews* _HandlerPOSTaddnews;
-    HandlerGETnews* _HandlerGETnews;
+    HandlerGETallNews* _HandlerGETallNews;
     HandlerPOSTlogin* _HandlerPOSTlogin;
+    HandlerGETnews* _HandlerGETnews;
     LoginManager* _LoginManager;
 
 	explicit MainSystem(API* _theAPI);
