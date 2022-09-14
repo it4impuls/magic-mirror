@@ -1,7 +1,6 @@
 #include <iostream>
 #include <restbed>
 #include <string>
-#include <fstream>
 #include "API.h"
 #include "json.hpp"
 #include "shared.h"
@@ -25,9 +24,13 @@ HandlerGETnews::HandlerGETnews(API* _api) {
 
 void HandlerGETnews::handleGETnews(const shared_ptr<Session> &session) {
 
+    const auto& request = session->get_request();
+
+    const string num = request->get_path_parameter("num");
+
     string s;
 
-    s = getDataFromFile("news1.txt");
+    s = getDataFromFile("news" + num + ".txt");
 
     string result = "{ \"news\":\"" + s + "\" }";
     This->api->closeSession(result,session);

@@ -34,7 +34,7 @@ bool MainSystem::initSystem() {
     theAPI->publishResource("GET", "/allnews", HandlerGETallNews::handleGETallNews);
     theAPI->publishResource("POST", "/addnews", HandlerPOSTaddnews::handlePOSTaddnews);
     theAPI->publishResource("POST", "/login", HandlerPOSTlogin::handlePOSTlogin);
-    theAPI->publishResource("GET", "/news", HandlerGETnews::handleGETnews);
+    theAPI->publishResource("GET", "/news/{num: .*}", HandlerGETnews::handleGETnews);
 
     return true;
 }
